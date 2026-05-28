@@ -9,6 +9,7 @@ const productosRoutes = require("./routes/productos.routes");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 app.use(cookieParser());
 
 
