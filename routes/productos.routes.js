@@ -2,25 +2,12 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/productos", (req, res) => {
-    res.send("Lista de productos");
-});
-router.get("/productos/:id", (req, res) => {
+const productosController = require("../controllers/productos.controller");
 
-    const id = req.params.id;
+router.get("/productos", productosController.listar);
 
-    res.send("Producto ID: " + id);
+router.get("/productos/:id", productosController.detalle);
 
-});
-router.post("/productos", (req, res) => {
-    const nombre = req.body.nombre;
-    const precio = req.body.precio;
-
-    if (!nombre || !precio) {
-        return res.send("Error: debe ingresar nombre y precio");
-    }
-
-    res.send("Producto creado: " + nombre + " - $" + precio);
-});
+router.post("/productos", productosController.crear);
 
 module.exports = router;
