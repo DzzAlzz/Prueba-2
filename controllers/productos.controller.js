@@ -42,7 +42,7 @@ function crear(req, res) {
             return res.send("Error al guardar producto");
         }
 
-        res.send("Producto guardado correctamente");
+        res.redirect("/productos");
     });
 }
 
