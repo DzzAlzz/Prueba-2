@@ -1,4 +1,5 @@
 const express = require("express");
+const conexion = require("./data/conexion");
 
 const app = express();
 const productosRoutes = require("./routes/productos.routes");
